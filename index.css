@@ -1,0 +1,53 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('https://i.imgur.com/CJ0uOIx.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: fixed;
+    margin: 0;
+}
+
+img {
+    height: 40px;
+}
+
+p {
+    margin: 0;
+}
+
+#iconsbar {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 5px;
+    height: 60px;
+    width: 55vmin;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(234, 234, 234);
+    border-radius: 5px;
+    opacity: 0.4;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#iconsbar > .icon {
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 5px;
+    width: 15%;
+    opacity: 1;
+}
+
+#iconsbar > .icon:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+
+
