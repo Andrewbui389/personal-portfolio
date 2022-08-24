@@ -36,7 +36,6 @@ p {
 }
 
 #iconsbar > .icon {
-    z-index: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,6 +46,14 @@ p {
 
 #iconsbar > .icon:hover {
     background-color: rgb(220, 220, 220);
+}
+
+#projectsWindow {
+    z-index: 5;
+    position: absolute;
+    width: 70vw;
+    height: 50vh;
+    background-color: rgb(17, 17, 158);
 }
 
 
