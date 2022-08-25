@@ -1,38 +1,71 @@
-createButtons()
-
 const projectsEl = document.querySelector('#projects')
 
 const projectsWindowEl = document.querySelector('#projectsWindow')
 
-const closeButtonEl = document.querySelector('#closeButton')
+const resumeEl = document.querySelector('#resume')
 
-const resizeButtonEl = document.querySelector('#resizeButton')
+const resumeWindowEl = document.querySelector('#resumeWindow')
 
-projectsEl.addEventListener('click', openWindow)
+const closeButtonEls = document.querySelectorAll('.closeButton')
 
-closeButtonEl.addEventListener('click', closeWindow)
+const resizeButtonEls = document.querySelectorAll('.resizeButton')
 
-resizeButtonEl.addEventListener('click', resizeWindow)
+const windowEls = document.querySelectorAll("[id$=Window]")
 
+projectsEl.addEventListener('click', openProjectWindow)
 
+resumeEl.addEventListener('click', openResumeWindow)
+
+windowEls.forEach(x => {
+    x.addEventListener('click', setIndex)
+})
+
+closeButtonEls.forEach(x => {
+    x.addEventListener('click', closeWindow)
+})
+
+resizeButtonEls.forEach(x => {
+    x.addEventListener('click', resizeWindow)
+})
+
+dragElement(projectsWindowEl);
+
+dragElement(resumeWindowEl)
+
+function setIndex(evt){
+    let currentWindow
+    if(evt.target.offsetParent.id === ''){
+        currentWindow = document.querySelector(`#${evt.target.id}`)
+    }else {
+        currentWindow = document.querySelector(`#${evt.target.offsetParent.id}`)
+    }
+    windowEls.forEach(x => {
+        if(x.id !== currentWindow.id){
+            x.style.zIndex = 6
+        }
+    })
+    currentWindow.style.zIndex = 7
+}
 
 function closeWindow(evt){
-    let currentWindow = document.querySelector(`#${evt.path[2].id}`)
+    let currentWindow = document.querySelector(`#${evt.target.offsetParent.id}`)
     currentWindow.style.visibility = 'hidden'
 }
 
 function resizeWindow(evt){
-    let currentWindow = document.querySelector(`#${evt.path[2].id}`)
+    const currentWindow = document.querySelector(`#${evt.target.offsetParent.id}`) 
     currentWindow.style.top = 0
     currentWindow.style.left = 0
     currentWindow.className === 'fullSize' ? currentWindow.className = 'halfSize' : currentWindow.className = 'fullSize' 
 }
 
-function openWindow(evt){
-    projectsWindowEl.style.visibility === 'hidden' ?  projectsWindowEl.style.visibility = 'visible' : projectsWindowEl.style.visibility = 'hidden'   
+function openResumeWindow(evt){
+    resumeWindowEl.style.visibility === 'hidden' ?  resumeWindowEl.style.visibility = 'visible' : resumeWindowEl.style.visibility = 'hidden'   
 }
 
-dragElement(projectsWindowEl);
+function openProjectWindow(evt){
+    projectsWindowEl.style.visibility === 'hidden' ?  projectsWindowEl.style.visibility = 'visible' : projectsWindowEl.style.visibility = 'hidden'   
+}
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -68,19 +101,5 @@ function dragElement(elmnt) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
-}
-
-function createButtons(){
-    let i = 0 
-    let colors = ['red', 'yellow']
-    const headerEl = document.querySelector('#projectsWindowheader')
-    while(i<2){
-        let newButton = document.createElement('button')
-        newButton.style.backgroundColor = colors[i]
-        newButton.setAttribute('class', 'headerButton')
-        i === 0 ? newButton.setAttribute('id', 'closeButton') : newButton.setAttribute('id', 'resizeButton') 
-        headerEl.appendChild(newButton)
-        i++
-    }
 }
 

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&family=Cormorant+SC:wght@300&family=Koulen&family=Lato:wght@100&family=Libre+Baskerville:ital@1&family=Open+Sans:wght@300&family=Orbitron&family=Press+Start+2P&family=Roboto+Mono:wght@300&family=Roboto:ital,wght@0,300;0,700;1,400&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
     <script src="./index.js" defer></script>
     <title>Document</title>
@@ -22,13 +25,52 @@
             <img src="https://i.imgur.com/HvD2hDw.png" alt="">
             <p>Note Pad</p>
         </div>
-        <div class="icon">
+        <div class="icon" id="resume">
             <img src="https://i.imgur.com/HvD2hDw.png" alt="">
             <p>Temp</p>
         </div>
     </div>
 </body>
 <div id="projectsWindow" class="halfSize">
-    <div id="projectsWindowheader"></div>
+    <div id="projectsWindowheader">
+        <button class="headerButton closeButton"></button>
+        <button class="headerButton resizeButton"></button>
+    </div>
+    <div id="projectsBody">
+        <div class="sideBar">
+            <ul>    
+                <li>Project1</li>
+                <li>Project1</li>
+                <li>Project1</li>
+                <li>Project1</li>
+            </ul>
+        </div>
+        <div class="rightSide">
+
+        </div>
+    </div>
+</div>
+<div id="resumeWindow" class="halfSize">
+    <div id="resumeWindowheader">
+        <button class="headerButton closeButton"></button>
+        <button class="headerButton resizeButton"></button>
+    </div>
+    <div id="resumeBody">
+        <img id="resumePhoto" src="https://i.imgur.com/axgh948.png" alt="">
+    </div>
+</div>
+<div id="stickyNoteSkills">
+    <h3>About Me</h3>
+    <ul>
+        <li>Andrew Bui</li>
+        <li>General Assembly Software Immersive</li>
+        <li>Attended the University of Oregon</li>
+        <li>Bachelors of Science</li>
+        <ul>
+            <li>Spatial Data Science + Technology</li>
+            <li>Geographic Information Science</li>
+            <li>Minor: Business Administration</li>
+        </ul>
+    </ul>
 </div>
 </html>
